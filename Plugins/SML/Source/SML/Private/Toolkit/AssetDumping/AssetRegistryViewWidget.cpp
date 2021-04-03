@@ -92,10 +92,10 @@ void SAssetTreeNodeRow::Construct(const FArguments& InArgs, const TSharedRef<STa
 TSharedRef<SWidget> SAssetTreeNodeRow::GenerateWidgetForColumn(const FName& InColumnName) {
 	if (InColumnName == TEXT("Path")) {
 		return SNew(SHorizontalBox)
-		+SHorizontalBox::Slot()[
+		+SHorizontalBox::Slot().AutoWidth()[
 			SNew(SExpanderArrow, SharedThis(this))
         ]
-        +SHorizontalBox::Slot()[
+        +SHorizontalBox::Slot().FillWidth(1)[
 			SNew(STextBlock)
 			.Text(FText::FromString(TreeNode->NodeName))
         ];
